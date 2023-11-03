@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<time.h>
+
+int game(char you,char computer)
+{
+ //if you choose stone
+ //computer choose paper
+ if(you == 's' && computer == 'p')
+  return 0;
+
+     // if you choose paper
+     // computer choose stone
+      else if(you == 'p'&& computer == 's')
+       return 1;
+  // if you choose scissor
+ // computer choose stone
+ if(you == 'z' && computer == 's')
+ return 0;
+       // if you choose stone
+      // computer choose scissor
+       else if(you == 's' && computer == 'z')
+       return 1;
+ 
+  // if you choose paper
+ // computer choose scissor
+ if (you == 'p' && computer == 'z')
+ return 0;
+   
+        // if you choose scissor
+        // computer choose paper
+        else if(you == 'z' && computer == 'p')
+        return 1;
+ 
+  // if you & computer same
+  if (you == computer)
+   return -1;
+  
+}
+  int main(){
+    // choose random number
+    int n;
+
+ char you, computer , result;
+ // choose random number every time
+
+ srand(time(NULL));
+ // make it less divided by 100
+n = rand() % 100;
+
+if (n < 33)
+{
+    // s is denoting stone
+    computer ='s';
+}
+ else if (n<33 && n>66)
+{
+    //p is denoting paper
+    computer = 'p';
+}
+else {
+// z is denoting scissor
+    computer ='z';
+}
+printf("\t\t\t\t\t\n s for stone\n p for paper\n z for scissor\n\t\t\t\t\t");
+ 
+ scanf("%c",&you);
+ result = game(you,computer);
+
+ if(result == -1)
+ { 
+    printf("draw!!!");
+ }
+ if(result == 1)
+ {
+    printf("you won the match !!!");
+ }
+ if(result==0)
+ {
+    printf("ohh\n you lost the match !!!");
+ }
+printf("you choose : %c & computer choose : %c\n",you,computer);
+return 0;
+  }
+
+
